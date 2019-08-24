@@ -4,7 +4,7 @@ namespace Manager
 {
     public interface IUserInterface
     {
-        WireQueue GetInput();
+        WireList GetInput();
         void Output(ResultType result);
     }
 }
