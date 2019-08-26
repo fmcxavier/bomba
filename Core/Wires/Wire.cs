@@ -9,7 +9,7 @@ namespace Core.Wires
         protected WireRule[] Rules;
         protected WireType Type;
 
-        protected ResultType Cut(Wire after)
+        public ResultType Cut(Wire after)
         {
             ResultType result = CheckActionType(after, ActionType.MustCut);
 

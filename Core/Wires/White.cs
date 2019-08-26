@@ -9,8 +9,8 @@ namespace Core.Wires
             Type = WireType.White;
             Rules = new[]
             {
-                new WireRule(ActionType.MustCut, WireType.White),
-                new WireRule(ActionType.MustCut, WireType.Black)
+                new WireRule(ActionType.CantCut, WireType.White),
+                new WireRule(ActionType.CantCut, WireType.Black)
             };
         }
     }

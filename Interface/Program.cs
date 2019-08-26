@@ -1,6 +1,6 @@
 ﻿using System;
 using Core;
-using Core.Enums;
+using Manager;
 
 namespace Interface
 {
@@ -8,6 +8,7 @@ namespace Interface
     {
         static void Main(string[] args)
         {
+            Game game = new Game();
             bool playing = true;
 
             while(playing)
@@ -17,7 +18,7 @@ namespace Interface
 
                 command = Console.ReadLine();
 
-                if(ValidateCommand(command))
+                if(game.ValidateCommand(command))
                 {
                     Console.WriteLine(command.ToWireType());
 
@@ -33,22 +34,6 @@ namespace Interface
         {
             Console.Clear();
             Console.WriteLine("Choose what wires to cut in order separated with a comma:");
-        }
-
-        private static bool ValidateCommand(string command)
-        {
-            bool isValid =
-                (command.ToLower() == "quit") ||
-                (command.ToWireType() != WireType.Invalid);
-
-            return isValid;
-        }
-
-        private static WireList CreateWireList()
-        {
-            var result = new WireList();
-
-            return result;
         }
     }
 }
