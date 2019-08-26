@@ -207,6 +207,29 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
+      "Manager/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Manager.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Manager.dll": {}
+        }
       }
     }
   },
@@ -678,10 +701,22 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
+    "Manager/1.0.0": {
+      "type": "project",
+      "path": "../Manager/Manager.csproj",
+      "msbuildProject": "../Manager/Manager.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "Core >= 1.0.0",
+      "Manager >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -712,7 +747,14 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Locker4/Dev/Inspire/Bomba/Core/Core.csproj": {
+              "projectPath": "/Locker4/Dev/Inspire/Bomba/Core/Core.csproj"
+            },
+            "/Locker4/Dev/Inspire/Bomba/Manager/Manager.csproj": {
+              "projectPath": "/Locker4/Dev/Inspire/Bomba/Manager/Manager.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
-        <RootNamespace>CoreRules</RootNamespace>
     </PropertyGroup>
 
 </Project>

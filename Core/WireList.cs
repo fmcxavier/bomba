@@ -1,45 +1,25 @@
 using System.Collections.Generic;
+using Core.Enums;
 
 namespace Core
 {
     public class WireList
     {
-        private LinkedList<WireType> _wireQueue;
+        private LinkedList<WireType> _wireCutList;
 
         public WireList()
         {
-            _wireQueue = new LinkedList<WireType>();
+            _wireCutList = new LinkedList<WireType>();
         }
 
         public void Add(WireType wire)
         {
-            _wireQueue.AddLast(wire);
+            _wireCutList.AddLast(wire);
         }
 
-        public bool IsFirst(WireType wire)
+        public ResultType CutWires()
         {
-            var element = _wireQueue.Find(wire);
-            return element != null && element.Previous == null;
-        }
-
-        public bool IsLast(WireType wire)
-        {
-            var element = _wireQueue.Find(wire);
-            return element != null && element.Next == null;
-        }
-
-        public WireType? Before(WireType wire)
-        {
-            var element = _wireQueue.Find(wire);
-
-            return element?.Previous?.Value;
-        }
-
-        public WireType? After(WireType wire)
-        {
-            var element = _wireQueue.Find(wire);
-
-            return element?.Next?.Value;
+            return ResultType.Disarm;
         }
     }
 }
