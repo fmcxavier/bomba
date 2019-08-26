@@ -8,7 +8,11 @@ namespace Core
         private Order _order;
         private ActionType _action;
 
-        public WireRule(WireType type, Order order, ActionType action)
+        public WireType Type => _type;
+        public Order Order => _order;
+        public ActionType Action => _action;
+
+        public WireRule(ActionType action, WireType type, Order order)
         {
             _type = type;
             _order = order;
