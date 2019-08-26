@@ -2,6 +2,7 @@ namespace Core.Enums
 {
     public enum WireType
     {
+        Invalid,
         White,
         Red,
         Black,

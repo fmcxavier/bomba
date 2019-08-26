@@ -20,9 +20,6 @@
         "projectReferences": {
           "/Locker4/Dev/Inspire/Bomba/Core/Core.csproj": {
             "projectPath": "/Locker4/Dev/Inspire/Bomba/Core/Core.csproj"
-          },
-          "/Locker4/Dev/Inspire/Bomba/Manager/Manager.csproj": {
-            "projectPath": "/Locker4/Dev/Inspire/Bomba/Manager/Manager.csproj"
           }
         }
       }

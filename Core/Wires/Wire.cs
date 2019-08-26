@@ -7,19 +7,19 @@ namespace Core.Wires
     public abstract class Wire
     {
         protected WireRule[] Rules;
-        protected WireType Type;
+        public WireType Type;
 
         protected ResultType Cut(Wire before, Wire after)
         {
-            ResultType result = CheckOrder(before, Order.Before);
+            ResultType result = CheckByOrder(before, Order.Before);
 
             if (result == ResultType.Disarm)
-                result = CheckOrder(after, Order.After);
+                result = CheckByOrder(after, Order.After);
 
             return result;
         }
 
-        private ResultType CheckOrder(Wire wire, Order order)
+        private ResultType CheckByOrder(Wire wire, Order order)
         {
             ResultType result = ResultType.Explode;
 

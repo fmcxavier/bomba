@@ -1,4 +1,3 @@
-using System.Linq;
 using Core.Enums;
 
 namespace Core.Wires
