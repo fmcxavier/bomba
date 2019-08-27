@@ -1,5 +1,4 @@
 ﻿using System;
-using Core;
 using Manager;
 
 namespace Interface
@@ -23,24 +22,52 @@ namespace Interface
                     var commandList = command.Split(",");
 
                     if(game.ValidateCommand(commandList))
-                        Console.WriteLine(game.ProcessCommands());
+                        PrintMessage(GetResultMessage(game.ProcessCommands()));
                     else
-                        Console.WriteLine("Invalid command, please try again.");
+                        PrintMessage("Invalid command, please try again.");
 
-                    Console.Read();
+                    Console.ReadKey();
                 }
             }
+        }
+
+        private static string GetResultMessage(string result)
+        {
+            string message;
+
+            switch (result.ToLower())
+            {
+                case "disarm":
+                    message = "Congratulations, you survived... this time.";
+                    break;
+                case "explode":
+                    message = "1, 2.... you died.";
+                    break;
+                default:
+                    message = "";
+                    break;
+            }
+
+            return message;
+        }
+
+        private static void PrintMessage(string message)
+        {
+            var leftOffset = (Console.WindowWidth - message.Length) / 2;
+            var topOffset = Console.WindowHeight - _messageLineTopOffset;
+            Console.SetCursorPosition(leftOffset, topOffset);
+            Console.Write(message);
         }
 
         private static void StartScreen()
         {
             Console.Clear();
-            string line = "Choose what wires to cut in order separated with a comma:";
+            string line = "Choose what wires to cut in order separated with a comma (or quit to...quit):";
 
             DrawSymbol();
 
             var bottomLine = Console.WindowHeight;
-            Console.SetCursorPosition(0,bottomLine - 1);
+            Console.SetCursorPosition(0,bottomLine - 2);
 
             Console.WriteLine(line);
         }
@@ -49,7 +76,7 @@ namespace Interface
         {
             var symbolLength = _bombSymbol[0].Length;
             _symbolLeftOffset = (Console.WindowWidth - symbolLength) / 2;
-            _symbolTopOffset = (Console.WindowHeight - _bombSymbol.Length - 2) / 2;
+            _symbolTopOffset = (Console.WindowHeight - _bombSymbol.Length - _messageLineTopOffset) / 2;
 
 
             var lineCount = 0;
@@ -61,9 +88,11 @@ namespace Interface
             }
         }
 
+        private static readonly int _messageLineTopOffset = 6;
+
         private static int _symbolLeftOffset;
         private static int _symbolTopOffset;
-        private static string[] _bombSymbol = new [] {
+        private static readonly string[] _bombSymbol = new [] {
             "                                                         c=====e" ,
             "                                                            H   " ,
             "   ____________                                         _,,_H_ _" ,
