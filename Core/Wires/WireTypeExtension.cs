@@ -8,7 +8,7 @@ namespace Core.Wires
         public static Wire ToInstance(this WireType wire)
         {
             return (Wire)Activator.CreateInstance(
-                Type.GetType("Core.Wires." + wire.ToString()), false);
+                Type.GetType(string.Concat("Core.Wires.", wire.ToString())), false);
         }
     }
 }
