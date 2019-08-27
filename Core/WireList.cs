@@ -27,11 +27,11 @@ namespace Core
             var result = ResultType.Disarm;
             while (current != null && result != ResultType.Explode)
             {
-                result = current.Value.Cut(current.Next.Value);
+                result = current.Value.Cut(current.Next?.Value);
                 current = current.Next;
             }
 
-            return ResultType.Disarm;
+            return result;
         }
     }
 }

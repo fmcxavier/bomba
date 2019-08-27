@@ -32,7 +32,7 @@ namespace Core.Wires
                 Rules.Where(x =>
                     x.Action == ActionType.CantCut);
 
-            if ((!mustCut.Any() || (wire != null && mustCut.Any(x => x.Type == wire.Type))) && cantCut.All(x => x.Type != wire.Type))
+            if ((!mustCut.Any() || (wire != null && mustCut.Any(x => x.Type == wire?.Type))) && cantCut.All(x => x.Type != wire?.Type))
                 result = ResultType.Disarm;
 
             return result;
