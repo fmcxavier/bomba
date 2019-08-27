@@ -18,14 +18,22 @@ namespace Interface
 
                 command = Console.ReadLine();
 
-                if(game.ValidateCommand(command))
+                if (command.ToLower() == "quit")
+                    playing = false;
+                else
                 {
-                    Console.WriteLine(command.ToWireType());
+                    var commandList = command.Split(",");
 
+                    if(game.ValidateCommand(commandList))
+                    {
+                        var result = game.ProcessCommands();
+                        Console.WriteLine(result);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid command, please try again.");
+                    }
                     Console.Read();
-
-                    if (command?.ToLower() == "quit")
-                        playing = false;
                 }
             }
         }

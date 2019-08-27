@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Core.Enums;
 
 namespace Core
@@ -11,6 +12,17 @@ namespace Core
 
             if (string.IsNullOrWhiteSpace(type) || !Enum.TryParse(type, true, out result))
                 result = WireType.Invalid;
+
+            return result;
+        }
+
+        public static List<WireType> ToWireTypeArray(this string[] typeArray)
+        {
+            var result = new List<WireType>();
+            foreach (var type in typeArray)
+            {
+                result.Add(type.ToWireType());
+            }
 
             return result;
         }
