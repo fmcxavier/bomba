@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core;
 using Core.Enums;
 using Core.Wires;
@@ -27,6 +28,22 @@ namespace Tests
             list.Add(WireType.Orange);
             list.Add(WireType.Green);
             list.Add(WireType.White);
+
+            Assert.AreEqual(ResultType.Explode, list.CutWires());
+        }
+
+        [Test]
+        public void WireTypeListConstructor_Disarm()
+        {
+            WireList list = new WireList(new List<WireType>() { WireType.White, WireType.Red, WireType.Green, WireType.White });
+
+            Assert.AreEqual(ResultType.Disarm, list.CutWires());
+        }
+
+        [Test]
+        public void WireTypeListConstructor_Explode()
+        {
+            WireList list = new WireList(new List<WireType>() { WireType.White, WireType.Orange, WireType.Green, WireType.White });
 
             Assert.AreEqual(ResultType.Explode, list.CutWires());
         }

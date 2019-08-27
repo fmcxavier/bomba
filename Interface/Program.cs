@@ -13,10 +13,8 @@ namespace Interface
 
             while(playing)
             {
-                string command;
                 StartScreen();
-
-                command = Console.ReadLine();
+                string command = Console.ReadLine();
 
                 if (command.ToLower() == "quit")
                     playing = false;
@@ -25,14 +23,10 @@ namespace Interface
                     var commandList = command.Split(",");
 
                     if(game.ValidateCommand(commandList))
-                    {
-                        var result = game.ProcessCommands();
-                        Console.WriteLine(result);
-                    }
+                        Console.WriteLine(game.ProcessCommands());
                     else
-                    {
                         Console.WriteLine("Invalid command, please try again.");
-                    }
+
                     Console.Read();
                 }
             }
