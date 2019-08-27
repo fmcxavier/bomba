@@ -48,7 +48,7 @@ namespace Tests
         [Test]
         public void Orange()
         {
-            Wire wire = new White();
+            Wire wire = new Orange();
 
             Assert.AreEqual(ResultType.Explode, wire.Cut(new White()));
             Assert.AreEqual(ResultType.Disarm, wire.Cut(new Red()));
@@ -61,7 +61,7 @@ namespace Tests
         [Test]
         public void Green()
         {
-            Wire wire = new White();
+            Wire wire = new Green();
 
             Assert.AreEqual(ResultType.Disarm, wire.Cut(new White()));
             Assert.AreEqual(ResultType.Explode, wire.Cut(new Red()));
