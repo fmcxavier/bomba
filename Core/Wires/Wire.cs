@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Enums;
@@ -36,15 +35,6 @@ namespace Core.Wires
                 result = ResultType.Disarm;
 
             return result;
-        }
-    }
-
-    public static class WireTypeExtensions
-    {
-        public static Wire ToInstance(this WireType wire)
-        {
-            return (Wire)Activator.CreateInstance(
-                Type.GetType("Core.Wires." + wire.ToString()), false);
         }
     }
 }
