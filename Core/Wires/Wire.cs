@@ -13,8 +13,10 @@ namespace Core.Wires
         {
             ResultType result = CheckActionType(after, ActionType.MustCut);
 
-            if (result == ResultType.Disarm)
-                result = CheckActionType(after, ActionType.CantCut);
+            // Inicialmente tinha feito o método para verificar o corte antes e depois, pois estava com ideia que era preciso
+            // Depois tinha intenção de separar as duas acções mas acabei por não o fazer q isto ficou por esquecimento
+            //if (result == ResultType.Disarm)
+            //    result = CheckActionType(after, ActionType.CantCut);
 
             return result;
         }
